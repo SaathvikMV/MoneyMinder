@@ -114,17 +114,14 @@
             <div class="container">
                 <div class="navbar-header">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="@PennyWise">PennyWise</a>
+                    <a class="navbar-brand" href="/">PennyWise</a>
                 </div>
                 <div class="collapse navbar-collapse" id="custom-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown"><a href="#home">Home</a>
+                        <li class="dropdown"><a href="#intro">Intro</a>
 
                         </li>
-                        <li class="dropdown"><a href="#">About</a>
-
-                        </li>
-                        <li class="dropdown"><a href="#">Features</a>
+                        <li class="dropdown"><a href="#alt-features">Features</a>
 
                         </li>
                         <%if(!currentUser){%>
@@ -203,22 +200,27 @@
                 </div>
             </div>
         </section>
+
         <div class="clip_center container">
             <div class="clip_center row">
                 <div class="clip_center col-md-8 col-md-offset-2" style="text-align:center;"><img class=" header_Clip img-responsive banner-img" src="/landing_page/header_Clip.png"></div>
             </div>
         </div>
+
         <div class="main">
             <section class="module-medium" id="about" style="padding-top:10px">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2">
+
                             <h2 class="module-title font-alt welcome_text">Welcome to PennyWise</h2>
                             <div class="module-subtitle font-serif large-text">
+<div class="justify">
 
-                                Introducing PennyWise, the ultimate Expense Tracker application designed to revolutionize the way you manage your finances. In today's fast-paced world, keeping track of expenses can be challenging and time-consuming. That's where PennyWise comes in.
+
+                                Introducing PennyWise, an AI powered Expense Tracker designed to change the way you manage your expenses. In today's fast-paced world, keeping track of expenses can be challenging and time-consuming. That's where PennyWise comes in.
                                 With its sleek and intuitive design, PennyWise simplifies expense tracking, making it effortless and efficient.
-                                <br> PennyWise offers a comprehensive set of features to ensure improved financial management.
+          </div>
                                 <!-- <div class="text-center">
                     <div class="btn-group mt-30"><a class="btn btn-border-d btn-circle" href="https://themewagon.github.io/titan/index_landing.html#"><i class="fa fa-android"></i> Play Store</a><a class="btn btn-border-d btn-circle" href="https://themewagon.github.io/titan/index_landing.html#"><i class="fa fa-apple"></i> App Store</a><a class="btn btn-border-d btn-circle" href="https://themewagon.github.io/titan/index_landing.html#"><i class="fa fa-windows"></i> Windows</a></div>
                   </div> -->
@@ -234,23 +236,24 @@
                         <input type="radio" id="banner2" class="sec-1-input" name="banner">
                         <input type="radio" id="banner3" class="sec-1-input" name="banner">
 
-                        <div class="slider">
+                        <div id="intro" class="slider">
                             <div id="top-banner-1" class="banner">
                                 <div class="clip_center banner-inner-wrapper">
                                     <div class="line"></div>
                                     <h1>PennyWise</h1>
-                                    <h2 class="msg-width">A prioritized user experience and design aesthetics to create an app that is intuitive, visually appealing, and easy to navigate. Our user-centric design ensures a seamless and enjoyable experience for users of all
-                                        backgrounds and tech-savviness.</h2>
+                                    <h2 class="msg-width" style="max-width:845px;font-size:35px;">An AI powered expense tracker to keep track of all your expenses & loans. Helps you to analyze your spending patterns
+                                    through graphical insights ...</h2>
                                     <div class="line"></div>
                                     <!-- <div class="learn-more-button"><a href="#section-2">Learn More</a></div> -->
                                 </div>
                             </div>
                             <div id="top-banner-2" class="banner">
                                 <div class="clip_center banner-inner-wrapper">
-                                    <div class="line"></div>
+                                    <div class="line" ></div>
                                     <h1>Why PennyWise ?</h1>
-                                    <h2 class="msg-width">Experience the difference that <strong>PennyWise</strong> offers in simplifying expense tracking, improving financial management, and empowering users to take control of their finances. Join our community of satisfied
-                                        users who have found success and peace of mind with our app. </h2>
+                                    <h2 class="msg-width" style="max-width:870px;font-size:35px;">Our advanced features like automatic categorization & graphical insights saves your time in making analysis &
+                                       helps you in setting your financial goals ...
+                                      </h2>
                                     <div class="line"></div>
                                     <!-- <div class="learn-more-button"><a href="#section-4">Learn More</a></div> -->
                                 </div>
@@ -259,9 +262,9 @@
                                 <div class="clip_center banner-inner-wrapper">
                                     <div class="line"></div>
                                     <h1>How we do ?</h1>
-                                    <h2 class="msg-width">We carefully select the appropriate technology stack that aligns with the app's requirements and offers optimal performance. This includes choosing programming languages, frameworks, and libraries that enable us to
-                                        create a fast, reliable, and user-friendly application.</h2>
-                                    <div class="line"></div>
+                                    <h2 class="msg-width" style="max-width:900px;">We have carefully chosen the appropriate tech stack that aligns with the app's requirements. This includes ML models, Front end and Back end technologies that enable us to
+                                        create a fast, reliable, and user-friendly application...</h2>
+
                                     <!-- <div class="learn-more-button"><a href="#section-6">Learn More</a></div> -->
                                 </div>
                             </div>
@@ -281,21 +284,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <h2 class="module-title font-alt">Our features</h2>
-                            <div class="module-subtitle font-serif">Budget Management,Data Visualization and Reports,Goal Setting and Tracking,Secure Data Storage,Personalization and Customization</div>
+                            <h2 class="module-title font-alt" style="margin-bottom:30px;">Our features</h2>
+                            <!-- <div class="module-subtitle font-serif">Budget Management,Data Visualization and Reports,Goal Setting and Tracking,Secure Data Storage,Personalization and Customization</div> -->
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-md-3 col-lg-3">
                             <div class="alt-features-item">
-                                <div class="alt-features-icon"><span class="icon-strategy"></span></div>
-                                <h3 class="alt-features-title font-alt">Feature 1</h3>With <strong>PennyWise</strong>, you can seamlessly integrate multiple accounts, including bank accounts, credit cards, and other financial platforms. This integration allows you to have a centralized view
-                                of all your expenses, eliminating the hassle of managing multiple platforms separately.
+                                <div class="alt-features-icon"><i class="fa-solid fa-money-bill-transfer" style="color: #5c14ec;"></i></div>
+                                <h3 class="alt-features-title font-alt" style="font-size:20px;">Manage day today expenses</h3><p class="justify" style="font-size:15px;">With <strong>PennyWise</strong>, you can store your expense data in the database by manually
+                                entering your expenses in our web app </p>
                             </div>
                             <div class="alt-features-item">
-                                <div class="alt-features-icon"><span class="icon-tools-2"></span></div>
-                                <h3 class="alt-features-title font-alt">Feature 2</h3>We understand the importance of accurate record-keeping, which is why <strong>PennyWise</strong> offers a cutting-edge receipt scanning feature. Simply snap a photo of your receipts, and the application will
-                                extract and organize essential information such as the date, merchant, and amount. No more lost receipts or manual data entry.
+                                <div class="alt-features-icon"><i class="fa-solid fa-clock-rotate-left" style="color: #cb6ce6;"></i></div>
+                                <h3 class="alt-features-title font-alt" style="font-size:20px;">View Expense History</h3><p class="justify" style="font-size:15px;">With <strong>PennyWise</strong>, you can
+                                view your expense history data wise & also you can filter and sort out your expense data. </p>
                             </div>
                             <!-- <div class="alt-features-item">
                   <div class="alt-features-icon"><span class="icon-target"></span></div>
@@ -311,14 +314,15 @@
                         </div>
                         <div class="col-sm-6 col-md-3 col-lg-3">
                             <div class="alt-features-item">
-                                <div class="alt-features-icon"><span class="icon-camera"></span></div>
-                                <h3 class="alt-features-title font-alt">Feature 3</h3>Experience the convenience, efficiency, and peace of mind that comes with using <strong>PennyWise</strong>. Take charge of your finances and achieve financial success with our user-friendly and feature-rich
-                                Expense Tracker application.
+                                <div class="alt-features-icon"><i class="fa-sharp fa-solid fa-percent" style="color: #5e17eb;"></i></div>
+                                <h3 class="alt-features-title font-alt" style="font-size:20px;">Manage your loans</h3><p class="justify" style="font-size:15px;">With <strong>PennyWise</strong>, you can store
+                                  your loan data in the database & you can also track all your loans at one place  </p>
                             </div>
                             <div class="alt-features-item">
-                                <div class="alt-features-icon"><span class="icon-mobile"></span></div>
-                                <h3 class="alt-features-title font-alt">Feature 4</h3>We prioritize your data security. <strong>PennyWise</strong> employs advanced encryption and robust security measures to safeguard your financial information. Additionally, you can set up personalized passcodes
-                                for authentication to ensure only authorized access to your app.
+                                <div class="alt-features-icon"><i class="fa-solid fa-chart-pie" style="color: #cb6ce6;"></i></div>
+                                <h3 class="alt-features-title font-alt" style="font-size:20px;">Graphical insights</h3><p class="justify" style="font-size:15px;">With <strong>PennyWise</strong>, you can view your category wise spending and
+                                  month wise breakup of all your expenses.</p>
+                            </div>
                             </div>
                             <!-- <div class="alt-features-item">
                   <div class="alt-features-icon"><span class="icon-linegraph"></span></div>
@@ -442,8 +446,8 @@
                             <p class="copyright font-alt">© 2023&nbsp PennyWise , All Rights Reserved</p>
                         </div>
                         <div class="col-sm-6">
-                            <div class="footer-social-links"><a href="https://themewagon.github.io/titan/index_landing.html#"><i class="fa-brands fa-github fa-xl"></i></a><a href="https://themewagon.github.io/titan/index_landing.html#"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-                                <a href="https://themewagon.github.io/titan/index_landing.html#"><i class="fa-solid fa-globe fa-xl"></i></a>
+                            <div class="footer-social-links"><a href="https://github.com/VadirajKranam/pennywise"><i class="fa-brands fa-github fa-xl"></i></a><a href=""><i class="fa-brands fa-linkedin fa-xl"></i></a>
+                                <a href=""><i class="fa-solid fa-globe fa-xl"></i></a>
                             </div>
                         </div>
                     </div>

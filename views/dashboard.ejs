@@ -28,10 +28,10 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Insights</a>
+                    <a class="nav-link" href="/:user/insights">Insights</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Track Loans</a>
+                    <a class="nav-link" href="/:user/loans">Track Loans</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -113,7 +113,7 @@
     <div class="container-fluid third" style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;">
         <h2 class="cent">Your expense history</h2>
         <div class="container">
-            <form action="/<%= user %>/dashboard_history" method="post" class="hist-form">
+            <form action="/<%= user %>/dashboard/dashboard_history" method="post" class="hist-form">
                 <div class="form-group hide_or_not">
                     <label for="date-input">Date:</label>
                     <div class="input-group">
