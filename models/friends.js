@@ -15,7 +15,7 @@ const friendsSchema = new mongoose.Schema({
         },
         name: {
             type: String,
-            required: true,
+            sparse: true
         },
         reason: {
             type: String
@@ -25,7 +25,6 @@ const friendsSchema = new mongoose.Schema({
             required: true,
             default: 0
         },
-
     }]
 });
 const Friends = new mongoose.model('Friend', friendsSchema)
