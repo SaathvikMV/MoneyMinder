@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const User = require('../models/user.js')
-const Expense = require('../models/expense.js')
-const Friend = require('../models/friends.js')
+const Expenses = require('../models/expense.js')
+const Friends = require('../models/friends.js')
 router.get('/register', async(req, res) => {
     res.render("register")
 })
@@ -18,10 +18,9 @@ router.post('/register', async(req, res) => {
                 return next(err)
             }
         })
-        const expense = new Expense({ user: req.user._id, expense: [] })
+        const expense = new Expenses({ user: req.user._id, expense: [] })
         await expense.save()
-        console.log(req.user._id)
-        const friend = new Friend({ user: req.user._id, friends: [] })
+        const friend = new Friends({ user: req.user._id, friends: [] })
         await friend.save()
         res.redirect('/:user/dashboard')
 

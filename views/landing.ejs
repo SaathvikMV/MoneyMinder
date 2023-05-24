@@ -195,7 +195,11 @@
                     <div class="container">
                         <div class="font-alt titan-title-size-4">PennyWise</div>
                         <div class=" subtitle">Make every penny count ...</div>
-                        <div class="font-alt mt-30"><a class="btn btn-border-w btn-circle" href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>  Login</a></div>
+                        <div class="font-alt mt-30">
+                            <%if(!currentUser){%>
+                                <a class="btn btn-border-w btn-circle" href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>  Login</a>
+                                <%}%>
+                        </div>
                     </div>
                 </div>
             </div>
