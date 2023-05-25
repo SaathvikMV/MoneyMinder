@@ -10,29 +10,35 @@ router.get('/', async(req, res) => {
         res.redirect('/:user/dashboard')
     }
 })
-router.post("/add", async(req, res) => {
-    const added_date = req.body.date;
-    const loan_type = req.body.loan_type;
-    const person = req.body.person;
-    const amount = req.body.amount;
-    const reason = req.body.reason;
-    const friend = {
-        date: added_date,
-        type: loan_type,
-        name: person,
-        reason: reason,
-        amount: amount
-    };
-    try {
-        const userLoans = await Friend.findOne({ user: req.user.id }).populate('user')
-        const friends = userLoans.friends
-        friends.push(friend)
-        await userLoans.save()
-        res.redirect("/:user/loans")
-    } catch (err) {
-        console.log(err)
-        res.redirect("/:user/loans")
-    }
+router.post("/add", async (req, res) => {
+  const added_date = req.body.date;
+  const loan_type = req.body.loan_type;
+  const amount = req.body.amount;
+  const reason = req.body.reason;
+
+  let person = req.body.person;
+  if (person === "new") {
+    person = req.body.newPerson;
+  }
+
+  const friend = {
+    date: added_date,
+    type: loan_type,
+    name: person,
+    reason: reason,
+    amount: amount
+  };
+
+  try {
+    const userLoans = await Friend.findOne({ user: req.user.id }).populate('user');
+    const friends = userLoans.friends;
+    friends.push(friend);
+    await userLoans.save();
+    res.redirect("/:user/loans");
+  } catch (err) {
+    console.log(err);
+    res.redirect("/:user/loans");
+  }
 });
 router.post("/delete", async(req, res) => {
     console.log('Inside delete route')

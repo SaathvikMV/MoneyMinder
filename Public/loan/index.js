@@ -21,5 +21,19 @@
     let c4=row.insertCell(3);
     let c5=row.insertCell(4);
     let c6=row.insertCell(5);
-    
+
+  });
+
+
+
+  $(document).ready(function() {
+    $('select[name="person"]').change(function() {
+      var selectedOption = $(this).val();
+      if (selectedOption === "new") {
+        $('input[name="newPerson"]').show().prop('required', true);
+        // $('select[name="person"]').hide().prop('required', true);
+      } else {
+        $('input[name="newPerson"]').hide().prop('required', false);
+      }
+    });
   });

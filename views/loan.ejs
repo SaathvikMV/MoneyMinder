@@ -62,8 +62,23 @@
         <option class='opt'value="lent" name="lent">Lent</option>
         <option class='opt'value="borrowed" name="borrowed">Borrowed</option>
     </select>
-                <label for="From">From</label>
-                <input type="text" name="person" placeholder="person" required>
+    <label for="From">From</label>
+<select name="person" required>
+  <option value="">Select a person</option>
+  <%
+  const selectedNames = [];
+  loans.forEach(function(friend) {
+    if (!selectedNames.includes(friend.name)) {
+      selectedNames.push(friend.name);
+  %>
+      <option value="<%= friend.name %>"><%= friend.name %></option>
+  <%
+    }
+  });
+  %>
+  <option value="new">Add New Friend</option>
+</select>
+<input type="text" name="newPerson" placeholder="New Friend" style="display: none;">
                 <label for="amount">Amount:</label>
                 <input type="number" name="amount" placeholder="Amount in Rs" rows="1" required>
                 <label for="reason">Reason</label>
@@ -219,7 +234,7 @@ transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary ml-auto 
 
 
 
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/loan/index.js" charset="utf-8"></script>
 </body>
 
