@@ -58,7 +58,6 @@
                 <input type="date" id="date" name="date" value="LDate" required>
                 <label for="type">Loan Type</label>
                 <select name="loan_type" id="lb" required>
-        <option value="sel">Select the Loan Type</option>
         <option class='opt'value="lent" name="lent">Lent</option>
         <option class='opt'value="borrowed" name="borrowed">Borrowed</option>
     </select>
@@ -100,8 +99,13 @@
                                                 <%= LoanItem.date.toLocaleDateString("en-GB") %>
                                             </div>
                                             <p class="card_p">
-                                                <%= LoanItem.type %> to / from
-                                                    <%= LoanItem.name %>
+                                                <%if(LoanItem.type=='lent'){%>
+                                                    <%= LoanItem.type %> to
+                                                        <%= LoanItem.name %>
+                                                            <%}else{%>
+                                                                <%= LoanItem.type %> from
+                                                                    <%= LoanItem.name %>
+                                                                        <%}%>
                                             </p>
                                             <div class=" pt-2 mt-2 border-top">
                                                 <p class="card_p">
