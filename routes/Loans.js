@@ -8,7 +8,6 @@ router.get('/', async(req, res) => {
         const allFriendsExpense = calculateFriendsExpense(userLoans)
         const friends = getFreinds(userLoans)
         res.render("loan", { loans: userLoans.friends, totalGiveOrTake: allFriendsExpense, user: req.user.username, friends: friends, items: [] })
-        console.log(allFriendsExpense);
     } catch (err) {
         console.log(err)
         res.redirect('/:user/dashboard')

@@ -122,14 +122,16 @@
               <table>
                 <tbody>
 
-                <tr>
+                <!-- <tr>
                 <th>Person</th>
                 <th>Balance</th>
-              </tr>
+              </tr> -->
               <% totalGiveOrTake.forEach(function(friend) { %>
               <tr>
-                <td> <%= friend.name %> <% if(friend.expense>0){ %> owes <% } else{ %>  is owed <% } %></td>
-                <td> Rs <%= Math.abs(friend.expense) %> <% if(friend.expense>0){ %> to you <% } else{ %>  by you <% } %> </td>
+                <td> <% if(friend.expense>0){ %> <%=friend.name %> <% }else { %> You <% } %> </td>
+                <td> <% if(friend.expense>0){ %> owes <% }else { %> owe <% } %> </td>
+                <td> Rs. <%= Math.abs(friend.expense) %> </td>
+                <td> to  <% if(friend.expense>0){ %> you <% }else{ %> <%=friend.name%> <% } %>  </td>
               </tr>
               <% }); %>
 

@@ -79,19 +79,21 @@ document.getElementsByClassName('hist-form')[0].addEventListener('submit', funct
 })
 
 
+// Get references to the relevant elements
+var sortSelect = document.getElementById('sort-select');
+var hideOrNot = document.querySelector('.hide_or_not');
 
-//    function hide(){
-//      document.getElementsByClassName("hide_or_not").classList.add("hidden");
-//    }
-//
-//    function nothidden(){
-//      document.getElementById("hide").classList.remove("hidden");
-//    }
-//
-//
-// var index = document.getElementById("sort-select").selectedIndex;
-// if (index==4 || index==5){
-//   hide();
-// }else{
-//   nothidden();
-// }
+// Function to handle the change event of the sort-select dropdown
+function handleSortSelectChange() {
+  var selectedOption = sortSelect.value;
+
+  // Check the selected option and hide/show the hideOrNot element accordingly
+  if (selectedOption === 'date_asc' || selectedOption === 'date_dec') {
+    hideOrNot.style.display = 'none';
+  } else {
+    hideOrNot.style.display = 'block';
+  }
+}
+
+// Attach the event listener to the sort-select dropdown
+sortSelect.addEventListener('change', handleSortSelectChange);
