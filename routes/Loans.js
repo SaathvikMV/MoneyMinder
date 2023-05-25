@@ -1,10 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const Friend = require('../models/friends.js')
+const { calculateFriendsExpense, getFreinds } = require('../JS/friendsExpense.js')
 router.get('/', async(req, res) => {
     try {
         const userLoans = await Friend.findOne({ user: req.user.id }).populate('user')
-        res.render("loan", { loans: userLoans.friends, user: req.user.username, items: [] })
+        const allFriendsExpense = calculateFriendsExpense(userLoans)
+        const friends = getFreinds(userLoans)
+        console.log(friends)
+        console.log(allFriendsExpense)
+        res.render("loan", { loans: userLoans.friends, user: req.user.username, friends: friends, items: [] })
     } catch (err) {
         console.log(err)
         res.redirect('/:user/dashboard')
