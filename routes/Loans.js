@@ -7,9 +7,7 @@ router.get('/', async(req, res) => {
         const userLoans = await Friend.findOne({ user: req.user.id }).populate('user')
         const allFriendsExpense = calculateFriendsExpense(userLoans)
         const friends = getFreinds(userLoans)
-        console.log(friends)
-        console.log(allFriendsExpense)
-        res.render("loan", { loans: userLoans.friends, user: req.user.username, friends: friends, items: [] })
+        res.render("loan", { loans: userLoans.friends, totalGiveOrTake: allFriendsExpense, user: req.user.username, friends: friends, items: [] })
     } catch (err) {
         console.log(err)
         res.redirect('/:user/dashboard')
