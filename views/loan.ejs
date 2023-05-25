@@ -63,18 +63,12 @@
     </select>
     <label for="From">From</label>
 <select name="person" required>
-  <option value="">Select a person</option>
+  <option value="" disabled selected>Select a person</option>
   <%
-  const selectedNames = [];
-  loans.forEach(function(friend) {
-    if (!selectedNames.includes(friend.name)) {
-      selectedNames.push(friend.name);
+  friends.forEach(function(friend) {
   %>
-      <option value="<%= friend.name %>"><%= friend.name %></option>
-  <%
-    }
-  });
-  %>
+      <option value="<%= friend%>"><%= friend%></option>
+  <% }); %>
   <option value="new">Add New Friend</option>
 </select>
 <input type="text" name="newPerson" placeholder="New Friend" style="display: none;">
