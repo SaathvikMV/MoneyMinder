@@ -301,6 +301,22 @@ h2.cent{
       background-color: #aa5dfc;
     }
 /* table styles  */
+.summarytable{
+  text-align:center;
+  margin:auto;
+}
+.summarytable table{
+  max-width:500px;
+  text-align:center;
+  margin:auto;
+}
+.summarytable h2{
+  margin-top:50px;
+  margin-bottom:20px;
+}
+.summarytable th{
+  background:#aa5dfc;
+}
 table {
       width: 100%;
       border-collapse: collapse;

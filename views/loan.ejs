@@ -115,6 +115,29 @@
                         <%   }); }%>
 
             </div>
+            <div class="container">
+<% if(totalGiveOrTake.length!=0){ %>
+            <div class="summarytable">
+              <h2>Summary</h2>
+              <table>
+                <tbody>
+
+                <tr>
+                <th>Person</th>
+                <th>Balance</th>
+              </tr>
+              <% totalGiveOrTake.forEach(function(friend) { %>
+              <tr>
+                <td> <%= friend.name %> <% if(friend.expense>0){ %> owes <% } else{ %>  is owed <% } %></td>
+                <td> Rs <%= Math.abs(friend.expense) %> <% if(friend.expense>0){ %> to you <% } else{ %>  by you <% } %> </td>
+              </tr>
+              <% }); %>
+
+            </tbody>
+              </table>
+            </div>
+<% } %>
+          </div>
         </div>
         <div class="third">
             <h2 class="cent">Track Your loans </h2>

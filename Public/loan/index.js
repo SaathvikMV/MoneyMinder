@@ -37,3 +37,14 @@
       }
     });
   });
+
+  $(document).ready(function() {
+      $('select[name="loan_type"]').change(function() {
+        var selectedLoanType = $(this).val();
+        if (selectedLoanType === "lent") {
+          $('label[for="From"]').text("To");
+        } else {
+          $('label[for="From"]').text("From");
+        }
+      });
+    });
