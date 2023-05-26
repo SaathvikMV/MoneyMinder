@@ -1,5 +1,11 @@
 /*nav bar styles*/
 /*nav bar styles*/
+#data-table-body{
+  text-align: center;
+}
+.hidden{
+  display:none;
+}
 .navbar{
   background-color: black;
   color:white;
