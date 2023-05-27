@@ -31,9 +31,7 @@ var options = {
   chart: {
     title: 'Category Wise Breakup',
     subtitle: 'in thousands of rupees (INR)'
-  },
-  width: 1000,
-  height: 500
+  }
 };
 
 var chart = new google.charts.Line(document.getElementById('linechart_material'));

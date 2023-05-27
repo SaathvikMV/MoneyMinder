@@ -11,3 +11,8 @@ function incrementDate() {
       const prevDate = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
       dateInput.value = prevDate.toISOString().split('T')[0];
     }
+
+    function displayGraph() {
+      var monthwiseBreakup = document.getElementById('monthwise_breakup');
+      monthwiseBreakup.classList.remove('hidden');
+    }

@@ -13,37 +13,7 @@
 </head>
 
 <body>
-    <!-- Nav Bar  -->
-
-    <nav class="navbar navbar-expand-md ">
-        <a class="navbar-brand" href="#">
-            <img src="pennywise-logo.png" alt="P"> PennyWise
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/:user/dashboard">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Track Loans</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">@<%=user%></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <%- include('partials/nav') %>
 
     <!-- dashboard heading -->
 
@@ -149,11 +119,11 @@
       <label for="date-input">Date:</label>
       <div class="input-group">
           <div class="input-group-prepend">
-              <span class="input-group-text" onclick="decrementDate()">&#x25C0;</span>
+              <span class="input-group-text" onclick="decrementDate()"><i class="fa-solid fa-caret-left" style="color: #424b5c;"></i></span>
           </div>
           <input type="date" class="form-control" id="date-input" name="date_input">
           <div class="input-group-append">
-              <span class="input-group-text" onclick="incrementDate()">&#x25B6;</span>
+              <span class="input-group-text" onclick="incrementDate()"><i class="fa-solid fa-caret-right" style="color: #424b5c;"></i></span>
           </div>
       </div>
   </div>
@@ -180,7 +150,7 @@
 
             </div>
 
-            <div class="container">
+            <div class="container table-responsive">
                 <table class="ltable" id="data-table">
 
 
@@ -241,29 +211,30 @@
         <a href="/<%= user %>/dashboard"><button style="background:#401c64;color:white;font-size: 1rem;
 font-weight: bold;
 padding: 0.5rem 1rem;
-margin: 0 2rem;
+margin: auto ;
 border-radius: 2rem;
 background-color: #401c64;
 border: none;
 text-transform: uppercase;
 letter-spacing: 0.1em;
-transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary dash-link">Dashboard</button></a>
+transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary dash_link">Dashboard</button></a><br><br>
         <a href="/<%= user %>/insights"> <button style="background:#401c64;color:white;font-size: 1rem;
 font-weight: bold;
 padding: 0.5rem 1rem;
-margin: 0 2rem;
+margin: auto ;
 border-radius: 2rem;
 background-color: #401c64;
 border: none;
 text-transform: uppercase;
 letter-spacing: 0.1em;
-transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary ml-auto dash-link">Insights</button></a>
+transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary ml-auto dash_link">Insights</button></a>
     </div>
 
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/loan/index.js" charset="utf-8"></script>
+    <script src="https://kit.fontawesome.com/1465e7da9e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const userLink = document.querySelector(".nav-link.dropdown-toggle");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+
+  userLink.addEventListener("click", function(e) {
+    e.preventDefault();
+    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", function(event) {
+    const isClickInsideDropdown = dropdownMenu.contains(event.target) || userLink === event.target;
+    if (!isClickInsideDropdown) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+});
+
+
+
 function incrementDate() {
     const dateInput = document.getElementById('date-input');
     const currentDate = new Date(dateInput.value);

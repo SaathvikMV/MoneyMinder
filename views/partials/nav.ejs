@@ -1,0 +1,39 @@
+
+    <nav class="navbar navbar-expand-md ">
+        <a class="navbar-brand" href="#">
+            <img src="pennywise-logo.png" alt="P"> PennyWise
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"> <i class="fa-solid fa-grip-lines" style="color: #ffffff;"></i> </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/:user/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/:user/insights">Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/:user/loans">Track Loans</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+  <li class="nav-item dropdown desktop_only">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa-solid fa-right-from-bracket fa-lg" style="color: #ffffff;"></i>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="userDropdown">
+      <h5 class="dropdown-item" >Hello <%= user %></h5>
+      <div class="dropdown-divider"></div>
+      <h5><a href="/logout"> <button class="btn-dark dropdown-item" >Logout</button> </a> </h5>
+    </div>
+  </li>
+
+  <li class="mobile_only" > <h5><a href="/logout"> <button style="color:white;" class="btn-dark dropdown-item" >Logout</button> </a> </h5> </li>
+
+</ul>
+
+        </div>
+    </nav>

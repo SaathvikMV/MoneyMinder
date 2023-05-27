@@ -2,13 +2,19 @@ google.charts.load('current', {packages: ['corechart', 'line']});
 google.charts.setOnLoadCallback(drawBackgroundColor);
 
 function drawBackgroundColor() {
+  var monthlyExpenses = JSON.parse("[" + document.getElementById('monthlyExpenses').textContent + "]");
+
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'X');
       data.addColumn('number', 'Amount');
 
-      data.addRows([
-        [1, 0], [2, 500], [3, 750], [4, 800],[5, 1000],[6, 1200],[7, 1500],[8, 2500],[9, 3000],[10, 1000],[11, 2500],[12, 2300]
-      ]);
+
+    data.addRows([
+    [1, monthlyExpenses[0][0]],[2, monthlyExpenses[0][1]],[3, monthlyExpenses[0][2]],
+      [4, monthlyExpenses[0][3]],[5, monthlyExpenses[0][4]],[6, monthlyExpenses[0][5]],[7, monthlyExpenses[0][6]],[8, monthlyExpenses[0][7]],
+      [9, monthlyExpenses[0][8]],[10, monthlyExpenses[0][9]],[11, monthlyExpenses[0][10]],[12, monthlyExpenses[0][11]]
+    ]);
+
 
       var options = {
         hAxis: {
