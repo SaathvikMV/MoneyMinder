@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Friend = require('../models/friends.js')
 const { calculateFriendsExpense, getFreinds } = require('../JS/friendsExpense.js')
+<<<<<<< HEAD
 router.get('/', async (req, res) => {
   try {
     const userLoans = await Friend.findOne({ user: req.user.id }).populate('user');
@@ -18,30 +19,48 @@ router.post("/add", async (req, res) => {
   const loan_type = req.body.loan_type;
   const amount = req.body.amount;
   const reason = req.body.reason;
+=======
+router.get('/', async(req, res) => {
+    try {
+        const userLoans = await Friend.findOne({ user: req.user.id }).populate('user')
+        const allFriendsExpense = calculateFriendsExpense(userLoans)
+        const friends = getFreinds(userLoans)
+        res.render("loan", { loans: userLoans.friends, totalGiveOrTake: allFriendsExpense, user: req.user.username, friends: friends, items: [] })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/:user/dashboard')
+    }
+})
+router.post("/add", async(req, res) => {
+    const added_date = req.body.date;
+    const loan_type = req.body.loan_type;
+    const amount = req.body.amount;
+    const reason = req.body.reason;
+>>>>>>> 7884673 (certain changes)
 
-  let person = req.body.person;
-  if (person === "new") {
-    person = req.body.newPerson;
-  }
+    let person = req.body.person;
+    if (person == "new") {
+        person = req.body.newPerson;
+    }
 
-  const friend = {
-    date: added_date,
-    type: loan_type,
-    name: person,
-    reason: reason,
-    amount: amount
-  };
+    const friend = {
+        date: added_date,
+        type: loan_type,
+        name: person,
+        reason: reason,
+        amount: amount
+    };
 
-  try {
-    const userLoans = await Friend.findOne({ user: req.user.id }).populate('user');
-    const friends = userLoans.friends;
-    friends.push(friend);
-    await userLoans.save();
-    res.redirect("/:user/loans");
-  } catch (err) {
-    console.log(err);
-    res.redirect("/:user/loans");
-  }
+    try {
+        const userLoans = await Friend.findOne({ user: req.user.id }).populate('user');
+        const friends = userLoans.friends;
+        friends.push(friend);
+        await userLoans.save();
+        res.redirect("/:user/loans");
+    } catch (err) {
+        console.log(err);
+        res.redirect("/:user/loans");
+    }
 });
 router.post("/delete", async(req, res) => {
     console.log('Inside delete route')

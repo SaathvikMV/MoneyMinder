@@ -5,6 +5,7 @@ function incrementDate() {
     dateInput.value = nextDate.toISOString().split('T')[0];
 }
 
+<<<<<<< HEAD
 function decrementDate() {
     const dateInput = document.getElementById('date-input');
     const currentDate = new Date(dateInput.value);
@@ -193,3 +194,11 @@ function formatDateForSorting(dateString) {
   const [year, month, day] = dateString.split('-');
   return `${month}/${day}/${year}`;
 }
+=======
+//   function decrementDate() {
+//     const dateInput = document.getElementById('date-input');
+//     const currentDate = new Date(dateInput.value);
+//     const prevDate = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
+//     dateInput.value = prevDate.toISOString().split('T')[0];
+//   }
+>>>>>>> 7884673 (certain changes)
