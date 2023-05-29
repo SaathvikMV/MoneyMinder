@@ -31,7 +31,6 @@ function decrementDate() {
     dateInput.value = prevDate.toISOString().split('T')[0];
 }
 
-<<<<<<< HEAD
 // Get references to the relevant elements
 var sortSelect = document.getElementById('sort-select');
 var hideOrNot = document.querySelector('.hide_or_not');
@@ -143,74 +142,6 @@ document.getElementsByClassName('hist-form')[0].addEventListener('submit', funct
     document.getElementById('no-elements-message').innerText = '';
     document.getElementById('no_element').classList.add('hidden');
 
-=======
-
-document.getElementsByClassName('hist-form')[0].addEventListener('submit', function(event) {
-    event.preventDefault()
-    const date = new Date(event.target[0].value.replaceAll('-', '/'))
-    const filter = event.target[1].value
-    const table = document.getElementsByTagName('tr')
-    let items = getItems(table)
-        //sortByFilter(items, filter)
-    sortByDate(items, date)
-    updateTable(items)
-})
-
-function getItems(table) {
-    const items = []
-    for (let i = 1; i < table.length; i++) {
-        const item = {
-            name: "",
-            amount: "",
-            date: "",
-            category: ""
-        }
-        item.name = table[i].children[0].innerText
-        item.amount = table[i].children[1].innerText
-        item.date = table[i].children[2].innerText
-        item.date = new Date(item.date.replaceAll('/', '-'))
-        item.category = table[i].children[3].innerText
-        items.push(item)
-    }
-    return items
-}
-
-function sortByFilter(items, filter) {
-    if (filter == 'amount_asc') {
-        items.sort((a, b) => { return a.amount - b.amount })
-    } else
-    if (filter == 'amount_dec') {
-        items.sort((a, b) => { return b.amount - a.amount })
-    } else if (filter == 'date_asc') {
-        items.sort((a, b) => {
-            const d1 = a.date
-            const d2 = b.date
-            return d1 - d2
-        })
-    } else if (filter == 'date_dec') {
-        items.sort((a, b) => {
-            const d1 = a.date
-            const d2 = b.date
-            return d2 - d1
-        })
-    }
-}
-
-function sortByDate(items, date) {
-    for (let i = 0; i < items.length; i++) {
-        if (items[i].date.getTime() != date.getTime()) {
-            items.splice(i, 1)
-        }
-    }
-
-}
-
-function updateTable(items) {
-    let tbody = document.getElementsByTagName('tbody')[0]
-    while (tbody.hasChildNodes()) {
-        tbody.removeChild(tbody.firstChild)
-    }
->>>>>>> 7884673 (certain changes)
     for (const item of items) {
       const tr = document.createElement('tr');
       const td1 = document.createElement('td');
@@ -228,7 +159,6 @@ function updateTable(items) {
       tr.appendChild(td4);
       tbody.appendChild(tr);
     }
-<<<<<<< HEAD
   }
 });
 
@@ -271,14 +201,3 @@ document.getElementsByClassName('mid_button')[1].addEventListener('click', funct
     }
   }
 });
-=======
-    if (items.length == 0) {
-        const tr = document.createElement('tr')
-        const td = document.createElement('td')
-        td.innerText = "No expenses found for the selected date"
-        td.colSpan = 4
-        tr.appendChild(td)
-        tbody.appendChild(tr)
-    }
-}
->>>>>>> 7884673 (certain changes)
