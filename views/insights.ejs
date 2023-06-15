@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>PennyWise - Expense Tracker</title>
   <meta charset="utf-8">
@@ -11,71 +12,73 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+
   <!-- Nav Bar  -->
-<%- include('partials/nav') %>
+  <%- include('partials/nav') %>
 
   <!-- dashboard heading -->
 
   <div class="head container">
-    <h1 >Smart Insights</h1>
+    <h1>Smart Insights</h1>
   </div>
 
-<div class="second">
-<!-- Dashboard user input form -->
-<h2 class="cent">Categories</h2>
-<div>
-  <form class="inp-form">
-    <label for="date">Year</label>
-    <input type="number" min="1900" max="2099" step="1" value="2023"/>
-    <br>
-    <h3 style="text-align:center;color:black;">Or</h3>
-    <label for="item">Month</label>
-    <input type="month" id="start" name="start" min="2018-03" value="2018-05">
-    <button class="inp-but" >+</button>
-  </form>
-</div>
-<div class="chart_responsive" id="piechart_3d"></div>
+  <div class="second">
+    <!-- Dashboard user input form -->
+    <h2 class="cent">Categories</h2>
+    <div>
+      <form class="inp-form">
+        <label for="date">Year</label>
+        <input type="number" min="1900" max="2099" step="1" value="2023" />
+        <br>
+        <h3 style="text-align:center;color:black;">Or</h3>
+        <label for="item">Month</label>
+        <input type="month" id="start" name="start" min="2018-03" value="2018-05">
+        <button class="inp-but">+</button>
+      </form>
+    </div>
+    <div class="chart_responsive" id="piechart_3d"></div>
 
-</div>
-</div>
+  </div>
+  </div>
 
-<!-- dashboard expense history -->
-<div class="container-fluid third" style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;color:white;">
-<h2 class="cent">Linear Analysis</h2>
-<form class="inp-form" method="post" action="/:user/insights/month">
-  <label for="date">Year</label>
-  <input name="year" type="number" min="1900" max="2099" step="1" value="2023"/>
-  <button onclick="displayGraph()" class="inp-but" >+</button>
-</form>
+  <!-- dashboard expense history -->
+  <div class="container-fluid third" style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;color:white;">
+    <h2 class="cent">Linear Analysis</h2>
+    <form class="inp-form" method="post" action="/:user/insights/month">
+      <label for="date">Year</label>
+      <input name="year" type="number" min="1900" max="2099" step="1" value="2023" />
+      <button onclick="displayGraph()" class="inp-but">+</button>
+    </form>
 
-<% if(year!=0) {%>
-<div id="monthwise_breakup" class="container">
-  <h3 class="cat-text">Month wise breakup</h3>
-  <div class="chart_responsive" id="linear_1"></div>
-</div>
-<% } %>
-<h3 class="cat-text">Category wise breakup</h3>
-<div id="linechart_material" class="chart_responsive" > </div>
-</div>
 
-<!-- links to other pages  -->
-<div class="forth">
+    <div id="monthwise_breakup" class="container">
+      <h3 class="cat-text">Month wise breakup</h3>
+      <div class="chart_responsive" id="linear_1"></div>
+    </div>
 
-<a href="/user123/dashboard"><button type="button" style="margin-bottom:10px;" class="btn btn-primary dash-link">Dashboard</button></a> <br>
-<a href="/user123/loans">  <button type="button" style="margin-bottom:10px;" class="btn btn-primary dash-link">Track Loans</button></a>
+    <h3 class="cat-text">Category wise breakup</h3>
+    <div id="linechart_material" class="chart_responsive"> </div>
+  </div>
 
-<script src="/Smart_Insights/insights.js" charset="utf-8"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="/Smart_Insights/google_charts0.js" charset="utf-8"></script>
-<script src="/Smart_Insights/google_charts1.js" charset="utf-8"></script>
-<script src="/Smart_Insights/google_charts2.js" charset="utf-8"></script>
-</div>
+  <!-- links to other pages  -->
+  <div class="forth">
+    <a href="/user123/dashboard"><button type="button" style="margin-bottom:10px;" class="btn btn-primary dash-link">Dashboard</button></a> <br>
+    <a href="/user123/loans"> <button type="button" style="margin-bottom:10px;" class="btn btn-primary dash-link">Track Loans</button></a>
 
-<div id="hidden" class="hidden" hidden>
-  <span id="monthlyExpenses">
-  <% if(monthly){ %>  [<%= monthly.join(',') %>] <% } %></span>
-</div>
-<script src="https://kit.fontawesome.com/1465e7da9e.js" crossorigin="anonymous"></script>
+    <script src="/Smart_Insights/insights.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/Smart_Insights/google_charts0.js" charset="utf-8"></script>
+    <script src="/Smart_Insights/google_charts1.js" charset="utf-8"></script>
+    <script src="/Smart_Insights/google_charts2.js" charset="utf-8"></script>
+  </div>
+
+  <div id="hidden" class="hidden" hidden>
+    <span id="monthlyExpenses">
+      <% if(monthly){ %> [<%= monthly.join(',') %>] <% } %></span>
+  </div>
+  <script src="https://kit.fontawesome.com/1465e7da9e.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

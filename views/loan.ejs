@@ -52,7 +52,7 @@
             <div class="scrolling-wrapper">
                 <!-- <div class="card-space"> -->
                 <%if(loans.length!=0){%>
-                    <% loans.forEach(function(LoanItem) { %>
+                    <% loans.reverse().forEach(function(LoanItem) { %>
                         <section class="my-5">
                             <form action="/<%=user%>/loans/delete" method="post">
                                 <input type="hidden" name="loanid" value="<%= LoanItem._id %>">
