@@ -1,6 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+const flash = require('connect-flash');
 const express = require('express')
 const mongoose = require('mongoose')
 const session = require('express-session')
@@ -81,6 +82,7 @@ app.use(setCurrentUser)
 app.get("/", async(req, res) => {
     res.render('landing')
 });
+app.use(flash());
 app.use('/', Authentication)
 app.use("/:user/dashboard", isLoggedIn, Dashboard);
 app.use("/:user/loans", isLoggedIn, Loans);
