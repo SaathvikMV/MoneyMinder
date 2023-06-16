@@ -20,6 +20,7 @@
     <!-- dashboard heading -->
 
     <div class="head container">
+
         <h1 class="responsive-h1">Hello
             <%=user%>
         </h1>
@@ -29,7 +30,8 @@
       <p>this month</p> -->
     </div>
 
-    <div class="second">
+    <div class="second ">
+
         <!-- Dashboard user input form -->
         <h2 class="cent">Add or Delete your expenses here</h2>
         <div>
@@ -47,7 +49,7 @@
         <!-- dashboard card notes -->
         <div class="scrolling-wrapper">
 
-            <% expenses.forEach(function(expenseItem) { %>
+            <% expenses.reverse().forEach(function(expenseItem) { %>
 
                 <!-- <div class="card-space"> -->
 
@@ -82,7 +84,8 @@
     </div>
 
     <!-- dashboard expense history -->
-    <div class="container-fluid third" style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;">
+    <div class="container-fluid third " style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;">
+
         <h2 class="cent">Your expense history</h2>
         <div class="container">
             <form class="hist-form">
