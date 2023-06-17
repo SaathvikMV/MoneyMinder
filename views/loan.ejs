@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>PennyWise - Expense Tracker</title>
+  <link rel="icon" type="image/png"  href="/landing_page/rupee.png">
+    <title>PennyWise-Loans</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/loan/styles.css">
@@ -10,9 +11,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Jost&family=Lato&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style="font-family: 'Jost', sans-serif;">
     <%- include('partials/nav') %>
 
     <!-- dashboard heading -->
@@ -217,7 +221,7 @@ background-color: #401c64;
 border: none;
 text-transform: uppercase;
 letter-spacing: 0.1em;
-transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary dash_link">Dashboard</button></a><br><br>
+transition: all 0.2s ease-in-out;" type="button" class="btn dash_link">Dashboard</button></a><br><br>
         <a href="/<%= user %>/insights"> <button style="background:#401c64;color:white;font-size: 1rem;
 font-weight: bold;
 padding: 0.5rem 1rem;
@@ -227,7 +231,7 @@ background-color: #401c64;
 border: none;
 text-transform: uppercase;
 letter-spacing: 0.1em;
-transition: all 0.2s ease-in-out;" type="button" class="btn btn-primary ml-auto dash_link">Insights</button></a>
+transition: all 0.2s ease-in-out;" type="button" class="btn dash_link">Insights</button></a>
     </div>
 
 

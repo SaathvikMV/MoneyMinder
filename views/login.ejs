@@ -2,25 +2,28 @@
 <html lang="en">
 
 <head>
-  <title>PennyWise - Login</title>
+  <link rel="icon" type="image/png"  href="/landing_page/rupee.png">
+  <title>PennyWise-Login</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/login/login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Jost&family=Lato&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
   <div class="container d-flex justify-content-center">
     <img class="login-image" src="/login/login.png" alt="login" style="margin-top: 100px;">
-    <div class="login-container" style="margin-top: 150px;">
+    <div class="login-container" >
+      <img class="PennyWise_logo" src="/landing_page/PennyWise_logo.png">
+      <h2>Login to Continue</h2>
       <% if (messages.error && messages.error.length > 0) { %>
       <div class="alert alert-danger" role="alert" style="text-align:center;">
         <%= messages.error[0] %>
       </div>
       <% } %>
-
-      <h2>Login to Continue</h2>
       <form action="/login" method="post">
         <div class="form-group">
           <label for="email-or-phone">Username</label>
@@ -29,7 +32,7 @@
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" name="password" required>
-          <a href="/forgot" class="forgot-password">Forgot Password?</a>
+          <a href="" class="forgot-password">Forgot Password?</a>
         </div>
         <button type="submit" class="btn btn-block btn-login">Login</button>
         <a href="/register" class="btn btn-block btn-create">Create Account</a>

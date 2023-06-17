@@ -2,187 +2,189 @@
 <html>
 
 <head>
-    <title>PennyWise - Expense Tracker</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/dashboard/dashboard.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</head>
+  <link rel="icon" type="image/png" href="/landing_page/rupee.png">
+  <title>PennyWise-Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dashboard/dashboard.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Jost&family=Lato&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <body>
-    <!-- Nav Bar  -->
-<%- include('partials/nav.ejs') %>
+  <!-- Nav Bar  -->
+  <%- include('partials/nav.ejs') %>
 
-    <!-- dashboard heading -->
+  <!-- dashboard heading -->
 
-    <div class="head container">
+  <div class="head container">
 
-        <h1 class="responsive-h1">Hello
-            <%=user%>
-        </h1>
-        <h3>Welcome to your Dashboard</h3>
-        <!-- <p>You've spent </p>
+    <h1 class="responsive-h1">Hello
+      <%=user%>
+    </h1>
+    <h3>Welcome to your Dashboard</h3>
+    <!-- <p>You've spent </p>
     <p>Rs 50</p>
       <p>this month</p> -->
+  </div>
+
+  <div class="second ">
+
+    <!-- Dashboard user input form -->
+    <h2 class="cent">Add or Delete your expenses here</h2>
+    <div>
+      <form action="/<%= user %>/dashboard/add" method="post" class="inp-form">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <label for="item">Item:</label>
+        <input type="text" name="title" onChange={handleChange} placeholder="Add item" required>
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" placeholder="Amount in Rs" rows="1" required>
+        <button type="submit" class="inp-but">+</button>
+      </form>
     </div>
 
-    <div class="second ">
+    <!-- dashboard card notes -->
+    <div class="scrolling-wrapper">
 
-        <!-- Dashboard user input form -->
-        <h2 class="cent">Add or Delete your expenses here</h2>
-        <div>
-            <form action="/<%= user %>/dashboard/add" method="post" class="inp-form">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" >
-                <label for="item">Item:</label>
-                <input type="text" name="title" onChange={handleChange} placeholder="Add item" required>
-                <label for="amount">Amount:</label>
-                <input type="text" name="amount" placeholder="Amount in Rs" rows="1" required>
-                <button type="submit" class="inp-but">+</button>
-            </form>
-        </div>
+      <% expenses.reverse().forEach(function(expenseItem) { %>
 
-        <!-- dashboard card notes -->
-        <div class="scrolling-wrapper">
+      <!-- <div class="card-space"> -->
 
-            <% expenses.reverse().forEach(function(expenseItem) { %>
-
-                <!-- <div class="card-space"> -->
-
-                <section class="my-5" style="max-width: 13rem;">
-                    <form action="/<%= user %>/dashboard/delete" method="post">
-                        <input type="hidden" name="expenseId" value="<%= expenseItem._id %>">
-                        <div class="card">
-                            <div class="card-body">
-                                <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
-                                    <div class="blockquote-custom-icon shadow-1-strong">
-                                        <%= expenseItem.date.toLocaleDateString("en-GB") %>
-                                    </div>
-                                    <p class="card_p">
-                                        <%= expenseItem.description %>
-                                    </p>
-                                    <div class=" pt-2 mt-2 border-top">
-                                        <p class="card_p">
-                                            Rs
-                                            <%= expenseItem.Amount %>
-                                        </p>
-                                    </div>
-                                </blockquote>
-                            </div>
-                            <button type="submit" class="del-but">-</button>
-                        </div>
-                    </form>
-                </section>
-                <%   }); %>
-                    <!-- </div> -->
-                    <!-- <div class="card-space"> -->
-        </div>
-    </div>
-
-    <!-- dashboard expense history -->
-    <div class="container-fluid third " style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;">
-
-        <h2 class="cent">Your expense history</h2>
-        <div class="container">
-            <form class="hist-form">
-                <div class="form-group hide_or_not">
-                    <label for="date-input">Date:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text desktop-only" onclick="decrementDate()">&#x25C0;</span>
-                        </div>
-                        <input type="date" class="form-control" id="date-input" name="date_input" >
-                        <div class="input-group-append">
-                            <span class="input-group-text desktop-only" onclick="incrementDate()">&#x25B6;</span>
-                        </div>
-                    </div>
+      <section class="my-5" style="max-width: 13rem;">
+        <form action="/<%= user %>/dashboard/delete" method="post">
+          <input type="hidden" name="expenseId" value="<%= expenseItem._id %>">
+          <div class="card">
+            <div class="card-body">
+              <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+                <div class="blockquote-custom-icon shadow-1-strong">
+                  <%= expenseItem.date.toLocaleDateString("en-GB") %>
                 </div>
-                <div class="form-group">
-                    <label for="sort-select">Sort By:</label>
-                    <select class="form-control" id="sort-select" name="sort_select" required>
-          <option value="" disabled selected>Select an option</option>
-          <option value="any">Any</option>
-          <option value="amount_asc">Amount Ascending</option>
-          <option value="amount_dec">Amount Decending</option>
-          <option value="category">Category</option>
-          <option value="date_asc">Date Ascending</option>
-          <option value="date_dec">Date Decending</option>
-
-        </select>
-
-
+                <p class="card_p">
+                  <%= expenseItem.description %>
+                </p>
+                <div class=" pt-2 mt-2 border-top">
+                  <p class="card_p">
+                    Rs
+                    <%= expenseItem.Amount %>
+                  </p>
                 </div>
-                <div style="text-align:center;" class="form-group">
-                    <button style="margin-bottom:20px;margin-top:10px;" class="mid_button" type="submit" name="show_all" value="true">Apply filter</button><br>
-
-                </div>
-
-            </form>
-            <div style="text-align:center;" id="no_element" class="hidden">
-            <h2 style="text-align:center" id="no-elements-message" ></h2>
-              <button  class="mid_button" type="submit" >Show all</button>
+              </blockquote>
             </div>
+            <button type="submit" class="del-but">-</button>
+          </div>
+        </form>
+      </section>
+      <%   }); %>
+      <!-- </div> -->
+      <!-- <div class="card-space"> -->
+    </div>
+  </div>
+
+  <!-- dashboard expense history -->
+  <div class="container-fluid third " style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;">
+
+    <h2 class="cent">Your expense history</h2>
+    <div class="container">
+      <form class="hist-form">
+        <div class="form-group hide_or_not">
+          <label for="date-input">Date:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text desktop-only" onclick="decrementDate()">&#x25C0;</span>
+            </div>
+            <input type="date" class="form-control" id="date-input" name="date_input">
+            <div class="input-group-append">
+              <span class="input-group-text desktop-only" onclick="incrementDate()">&#x25B6;</span>
+            </div>
+          </div>
         </div>
+        <div class="form-group">
+          <label for="sort-select">Sort By:</label>
+          <select class="form-control" id="sort-select" name="sort_select" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="any">Any</option>
+            <option value="amount_asc">Amount Ascending</option>
+            <option value="amount_dec">Amount Decending</option>
+            <option value="category">Category</option>
+            <option value="date_asc">Date Ascending</option>
+            <option value="date_dec">Date Decending</option>
 
-        <div class="container table-responsive">
-
-            <table id="data-table">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Amount in Rs</th>
-                        <th>Date</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% if(expenses.length > 0) { %>
-                        <% expenses.forEach((expense) => { %>
-
-                            <tr>
-                                <td>
-                                    <%= expense.description %>
-                                </td>
-                                <td>
-                                    <%= expense.Amount %>
-                                </td>
-                                <td>
-                                    <% if(expense.date) { %>
-                                        <%= expense.date.toLocaleDateString('zh-Hans-CN') %>
-                                            <% } %>
-                                </td>
-                                <td>
-                                    <%= expense.category %>
-                                </td>
-                            </tr>
-
-                            <% }); %>
-                                <% } else { %>
-                                    <tr>
-                                        <td colspan="4 ">No expenses found for the selected date</td>
-                                    </tr>
-                                    <% } %>
-                </tbody>
-            </table>
+          </select>
 
 
         </div>
+        <div style="text-align:center;" class="form-group">
+          <button style="margin-bottom:20px;margin-top:10px;" class="mid_button" type="submit" name="show_all" value="true">Apply filter</button><br>
+
+        </div>
+
+      </form>
+      <div style="text-align:center;" id="no_element" class="hidden">
+        <h2 style="text-align:center" id="no-elements-message"></h2>
+        <button class="mid_button" type="submit">Show all</button>
+      </div>
     </div>
 
+    <div class="container table-responsive">
 
-    <!-- links to other pages  -->
-    <div class="forth ">
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Amount in Rs</th>
+            <th>Date</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(expenses.length > 0) { %>
+          <% expenses.forEach((expense) => { %>
 
-        <a  href="/<%=user %>/insights"><button style="margin-bottom:10px;" type="button" class="btn btn-primary dash_link">Smart Insights</button></a> <br><br>
-        <a  href="/<%= user %>/loans"> <button  style="margin-bottom:10px;" type="button" class="btn btn-primary dash_link">Track Loans</button></a>
+          <tr>
+            <td>
+              <%= expense.description %>
+            </td>
+            <td>
+              <%= expense.Amount %>
+            </td>
+            <td>
+              <% if(expense.date) { %>
+              <%= expense.date.toLocaleDateString('zh-Hans-CN') %>
+              <% } %>
+            </td>
+            <td>
+              <%= expense.category %>
+            </td>
+          </tr>
+
+          <% }); %>
+          <% } else { %>
+          <tr>
+            <td colspan="4 ">No expenses found for the selected date</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
 
     </div>
-    <script src="/dashboard/dashboard.js" charset="utf-8"></script>
-    <script src="https://kit.fontawesome.com/1465e7da9e.js" crossorigin="anonymous"></script>
+  </div>
+
+
+  <!-- links to other pages  -->
+  <div class="forth ">
+
+    <a href="/<%=user %>/insights"><button style="margin-bottom:10px;" type="button" class="btn dash_link">Smart Insights</button></a> <br><br>
+    <a href="/<%= user %>/loans"> <button style="margin-bottom:10px;" type="button" class="btn dash_link">Track Loans</button></a>
+
+  </div>
+  <script src="/dashboard/dashboard.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/1465e7da9e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

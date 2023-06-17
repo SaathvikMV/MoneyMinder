@@ -1,4 +1,13 @@
+/* scroll bar styles */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
 
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #d6b8f5, #7d51a8); /* Replace with your desired gradient */
+  border-radius: 10px;
+}
 
 /* responsive design */
   .mobile_only {
@@ -282,7 +291,7 @@
   }
   .navbar-nav {
     text-align:center;
-    margin-left:auto;
+    margin:auto;
   }
   .nav-item {
     margin-right: 20px;
@@ -315,7 +324,7 @@
   }
 /*body heading styles*/
 body {
-      font-family: Arial, sans-serif;
+      font-family: 'Jost', sans-serif;
       background:#401c64;
       color:white;
     }
@@ -608,6 +617,7 @@ table {
   height:auto;
 }
 .dash_link {
+  color:white;
   width:auto;
       font-size: 1rem;
       font-weight: bold;
@@ -621,6 +631,7 @@ table {
       transition: all 0.2s ease-in-out;
     }
     .dash_link:hover {
+      color:white;
       background-color: #290d45;
     }
     .dash_link:focus, .dash_link:active {
