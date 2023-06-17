@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>PennyWise - Register</title>
+  <link rel="icon" type="image/png"  href="/landing_page/rupee.png">
+  <title>PennyWise-Register</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
@@ -12,15 +13,15 @@
 <body>
 
   <div class="container d-flex justify-content-center">
-    <img class="register-image" src="/register/register.png" alt="register" style="margin-top: 100px;">
+    <img class="register-image" src="/register/register.png" alt="register" >
     <div class="register-container">
+      <img class="PennyWise_logo" src="/landing_page/PennyWise_logo.png">
+      <h2>Register to Continue</h2>
       <% if (messages.error && messages.error.length > 0) { %>
       <div class="alert alert-danger" role="alert" style="text-align:center;">
         <%= messages.error[0] %>
       </div>
       <% } %>
-
-      <h2>Register to Continue</h2>
       <form class="" action="/register" method="post">
         <div class="form-group">
           <label for="name">Name</label>
@@ -116,8 +117,7 @@
       }
     });
   </script>
-
-
+<h1 style="font-size:1px;">***</h1>
 </body>
 
 </html>

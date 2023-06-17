@@ -1,9 +1,29 @@
+/* scroll bar styles */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #d6b8f5, #7d51a8); /* Replace with your desired gradient */
+  border-radius: 10px;
+}
+
 .mobile_only {
   display: none;
 }
 /* navigation styles=  */
 
   @media (max-width: 576px) {
+    ::-webkit-scrollbar {
+      height:4px;
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #d6b8f5, #7d51a8); /* Replace with your desired gradient */
+      border-radius: 10px;
+    }
     .mobile_only {
       display: block;
     }
@@ -90,7 +110,7 @@
     background-color: #d6b8f5;
   }
   .navbar-nav .nav-item.dropdown .dropdown-menu {
-    transform: translate3d(-110px, 0, 0); /* Adjust the value as needed */
+    transform: translate3d(-120px, 0, 0); /* Adjust the value as needed */
   }
 
 
@@ -340,7 +360,7 @@
   margin-right: 10px;
 }
 .navbar-nav {
-  margin-left: auto;
+  margin: auto;
 }
 .nav-item {
   margin-right: 20px;
@@ -373,7 +393,7 @@
 }
 /*body heading styles*/
 body {
-      font-family: Arial, sans-serif;
+      font-family: 'Jost', sans-serif;
       background:#401c64;
       color:white;
     }
@@ -690,6 +710,7 @@ table {
   height:auto;
 }
 .dash_link {
+  color:white;
       font-size: 1rem;
       font-weight: bold;
       padding: 0.5rem 1rem;
@@ -702,6 +723,7 @@ table {
       transition: all 0.2s ease-in-out;
     }
     .dash_link:hover {
+        color:white;
       background-color: #290d45;
     }
     .dash_link:focus, .dash_link:active {
