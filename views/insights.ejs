@@ -30,18 +30,32 @@
 
   <div class="second">
     <!-- Dashboard user input form -->
-    <h2 class="cent">Categories</h2>
+    <h2 class="cent">Categories Analysis</h2>
     <div>
-      <form class="inp-form">
-        <label for="date">Year</label>
-        <input type="number" min="1900" max="2099" step="1" value="2023" />
-        <br>
-        <h3 style="text-align:center;color:black;">Or</h3>
-        <label for="item">Month</label>
-        <input type="month" id="start" name="start" min="2018-03" value="2018-05">
+      <form class="inp-form" action="/:user/insights/piechart" method="post">
+        <label for="item">Select Month & Year</label>
+        <input type="month" id="start" name="month" min="2018-03" value="">
         <button class="inp-but">+</button>
       </form>
     </div>
+    
+    <% function formatDate(dateString) {
+  const dateParts = dateString.split('-');
+  const year = dateParts[0];
+  const month = parseInt(dateParts[1]);
+
+  const monthNames = [
+    'January', 'February', 'March', 'April',
+    'May', 'June', 'July', 'August',
+    'September', 'October', 'November', 'December'
+  ];
+
+  const formattedDate = monthNames[month - 1] + ' ' + year;
+  return formattedDate;
+} %>
+
+
+    <h3 class="cat-text">Category wise breakup of <%= formatDate(selectedMonth) %></h3>
     <div class="chart_responsive" id="piechart_3d"></div>
 
   </div>
@@ -52,18 +66,16 @@
     <h2 class="cent">Linear Analysis</h2>
     <form class="inp-form" method="post" action="/:user/insights/month">
       <label for="date">Year</label>
-      <input name="year" type="number" min="1900" max="2099" step="1" value="2023" />
+      <input name="year" type="number" min="1900" max="2099" step="1" placeholder="enter the year" />
       <button onclick="displayGraph()" class="inp-but">+</button>
     </form>
 
 
     <div id="monthwise_breakup" class="container">
-      <h3 class="cat-text">Month wise breakup</h3>
+      <h3 class="cat-text">Month wise breakup <%if(year){ %>of the year <%=year%> <% } %></h3>
       <div class="chart_responsive" id="linear_1"></div>
     </div>
 
-    <h3 class="cat-text">Category wise breakup</h3>
-    <div id="linechart_material" class="chart_responsive"> </div>
   </div>
 
   <!-- links to other pages  -->
@@ -80,8 +92,19 @@
 
   <div id="hidden" class="hidden" hidden>
     <span id="monthlyExpenses">
-      <% if(monthly){ %> [<%= monthly.join(',') %>] <% } %></span>
+      <% if(monthly){ %> [<%= monthly.join(',') %>] <% } %>
+    </span>
+    <span id="piechart">
+      <% if (categoryTotals) { %>
+  <% Object.entries(categoryTotals).forEach(([category, total]) => { %>
+    <p id="<%= category %>"><%= total %></p>
+  <% }); %>
+<% } %>
+
+    </span>
+
   </div>
+
   <script src="https://kit.fontawesome.com/1465e7da9e.js" crossorigin="anonymous"></script>
 </body>
 
