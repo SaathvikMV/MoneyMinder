@@ -23,8 +23,19 @@
     display:none;
   }
   .del-but {
-    top: 5px;
-    right: 5px;
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    background: #aa5dfc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
   }
   .desktop-only {
       display: none;
@@ -72,7 +83,6 @@
     .scrolling-wrapper {
         overflow-x: auto;
         overflow-y: hidden;
-        white-space: nowrap;
         margin: 10px -20px;
     }
 
@@ -91,11 +101,19 @@
     }
 
     .del-but {
-        font-size: 1rem;
-        padding: 5px 10px;
-        position: absolute;
-        top: 110px;
-        right: 10px;
+      position: absolute;
+      right: 20px;
+      bottom: -30px;
+      background: #aa5dfc;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease-in-out;
     }
 
     .third {
@@ -151,8 +169,19 @@
     }
 
     .del-but {
-        font-size: 1.2rem;
-        padding: 6px 12px;
+      position: absolute;
+      right: 20px;
+      bottom: -30px;
+      background: #aa5dfc;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease-in-out;
     }
 
     .third {
@@ -438,9 +467,19 @@ h2.cent{
   }
 
   .del-but {
-    width: 40px;
-    height: 40px;
-    bottom: -20px;
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    background: #aa5dfc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -448,7 +487,6 @@ h2.cent{
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
-  white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   display: flex;
   flex-wrap: nowrap;
@@ -460,12 +498,13 @@ h2.cent{
   .card {
     margin: 0 20px;
     display: inline-block;
-    min-width: 200px;
-    min-height: 100px;
+    width: 200px;
+    min-height: 150px;
   }
 }
 
   .blockquote-custom {
+  word-wrap: break-word;
   position: relative;
   font-size: 1.1rem;
   margin-bottom:0;

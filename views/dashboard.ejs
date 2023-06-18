@@ -39,7 +39,7 @@
     <div>
       <form action="/<%= user %>/dashboard/add" method="post" class="inp-form">
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" required>
         <label for="item">Item:</label>
         <input type="text" name="title" onChange={handleChange} placeholder="Add item" required>
         <label for="amount">Amount:</label>
