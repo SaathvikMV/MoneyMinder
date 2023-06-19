@@ -8,13 +8,17 @@ router.get('/', async(req, res) => {
     res.render("dashboard", expenDetails);
 })
 router.post('/add', async(req, res) => {
+    var cat;
     const added_date = req.body.date;
     const title = req.body.title;
     const amount = req.body.amount;
+    // if(title=="Petrol"){cat="Travel";}else if(title=="Pizza"){cat="Food";}else if(title=="Hdd"){cat="Miscellaneous"}else if(title=="Zomato share"){cat="Savings"}
+    // else if(title=="Movie"){cat="Entertainment"}else if(title=="Dolo 650"){cat="Health"}else if(title=="House rent"){cat="Housing"}else if(title=="Tea"){cat="Food"}else{cat="NA"}
     const newExpense = {
         Amount: amount,
         description: title,
-        date: added_date
+        date: added_date,
+        //category:cat
     };
     try {
         const expense = await Expense.findOne({ user: req.user.id }).populate('user')

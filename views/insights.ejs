@@ -32,30 +32,15 @@
     <!-- Dashboard user input form -->
     <h2 class="cent">Categories Analysis</h2>
     <div>
-      <form class="inp-form" action="/:user/insights/piechart" method="post">
-        <label for="item">Select Month & Year</label>
-        <input type="month" id="start" name="month" min="2018-03" value="">
+      <form class="inp-form">
+        <label for="item">Month</label>
+        <input type="month" id="start" name="month" min="2023-01" value="">
         <button class="inp-but">+</button>
       </form>
     </div>
-    
-    <% function formatDate(dateString) {
-  const dateParts = dateString.split('-');
-  const year = dateParts[0];
-  const month = parseInt(dateParts[1]);
-
-  const monthNames = [
-    'January', 'February', 'March', 'April',
-    'May', 'June', 'July', 'August',
-    'September', 'October', 'November', 'December'
-  ];
-
-  const formattedDate = monthNames[month - 1] + ' ' + year;
-  return formattedDate;
-} %>
 
 
-    <h3 class="cat-text">Category wise breakup of <%= formatDate(selectedMonth) %></h3>
+    <h3 class="cat-text">Category wise breakup of <%= selectedMonth %></h3>
     <div class="chart_responsive" id="piechart_3d"></div>
 
   </div>

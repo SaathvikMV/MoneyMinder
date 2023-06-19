@@ -10,23 +10,23 @@ router.get('/', async (req, res) => {
   for (const expense of expenses) {
     const expenseYear = expense.date.getFullYear();
     if (expenseYear === selectedYear) {
-      const expenseMonth = expense.date.getMonth();
+      var expenseMonth = expense.date.getMonth();
       monthlyExpenses[expenseMonth] += expense.Amount;
     }
   }
-  const selectedMonth = req.query.month ? parseInt(req.query.month) : "2023-06";
+  const selectedMonth = req.query.month ;
 
-  const categoryTotals = {};
+  var categoryTotals = {};
 
   for (const expense of expenses) {
-    const expenseMonth = expense.date.toISOString().substr(0, 7); // Get the month in "YYYY-MM" format
+    var expenseMonth = expense.date.toISOString().substr(0, 7); // Get the month in "YYYY-MM" format
 
     if (expenseMonth !== selectedMonth) {
       continue;
     }
 
-    const category = expense.category;
-    const amount = expense.Amount;
+    var category = expense.category;
+    var amount = expense.Amount;
 
     if (category in categoryTotals) {
       categoryTotals[category] += amount;
@@ -44,7 +44,7 @@ router.post('/month', async (req, res) => {
 });
 
 router.post('/piechart', async (req, res) => {
-  const selectedMonth = req.body.month ? parseInt(req.body.month) : "2023-06";
+  const selectedMonth = req.body.month ;
   console.log(selectedMonth);
   res.redirect(`/${req.user.username}/insights?month=${selectedMonth}`);
 });
