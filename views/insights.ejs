@@ -38,11 +38,25 @@
         <button class="inp-but">+</button>
       </form>
     </div>
-
-
-    <h3 class="cat-text">Category wise breakup of <%= selectedMonth %></h3>
+    <% function formatDate(dateString) {
+      const dateParts = dateString.split('-');
+      const year = dateParts[0];
+      const month = parseInt(dateParts[1]);
+      const monthNames = [
+        'January', 'February', 'March', 'April',
+        'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'
+      ];
+      const formattedDate = monthNames[month - 1] + ' ' + year;
+      return formattedDate;
+    } %>
+    <%if(Object.keys(categoryTotals).length) {%>
+      
+      <h3 class="cat-text">Category wise breakup of <%= formatDate(selectedMonth) %></h3>
     <div class="chart_responsive" id="piechart_3d"></div>
-
+    <% }else{ %>
+      <h3 class="cat-text">No data found for <%= formatDate(selectedMonth) %>...<br>Please enter the data in the dashboard page first</h3>
+<% } %>
   </div>
   </div>
 
@@ -54,7 +68,6 @@
       <input name="year" type="number" min="1900" max="2099" step="1" placeholder="enter the year" />
       <button onclick="displayGraph()" class="inp-but">+</button>
     </form>
-
 
     <div id="monthwise_breakup" class="container">
       <h3 class="cat-text">Month wise breakup <%if(year){ %>of the year <%=year%> <% } %></h3>

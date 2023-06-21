@@ -402,6 +402,7 @@ h2.cent{
 }
 
 .inp-form input,
+.inp-form select,
 .inp-form textarea {
   width: 100%;
   display: block;
@@ -416,6 +417,7 @@ h2.cent{
 }
 
 .inp-form input:focus,
+.inp-form select:focus,
 .inp-form textarea:focus {
   outline: none;
   box-shadow: inset 0 2px 5px #7e05fc;
@@ -451,6 +453,7 @@ h2.cent{
   }
 
   .inp-form input,
+  .inp-form select,
   .inp-form textarea {
     font-size: 14px;
     padding: 8px;

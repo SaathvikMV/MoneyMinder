@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       monthlyExpenses[expenseMonth] += expense.Amount;
     }
   }
-  const selectedMonth = req.query.month ;
+  var selectedMonth = req.query.month? req.query.month : "2023-06"; 
 
   var categoryTotals = {};
 
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
       categoryTotals[category] = amount;
     }
   }
-  console.log(categoryTotals);
+  console.log(categoryTotals,monthlyExpenses);
 res.render('insights', { user: req.user.username, monthly: monthlyExpenses, year: selectedYear,categoryTotals,selectedMonth});
 });
 
@@ -44,7 +44,7 @@ router.post('/month', async (req, res) => {
 });
 
 router.post('/piechart', async (req, res) => {
-  const selectedMonth = req.body.month ;
+  let selectedMonth = req.body.month ? req.body.month : "2023-06";
   console.log(selectedMonth);
   res.redirect(`/${req.user.username}/insights?month=${selectedMonth}`);
 });

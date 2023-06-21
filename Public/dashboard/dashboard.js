@@ -201,3 +201,31 @@ document.getElementsByClassName('mid_button')[1].addEventListener('click', funct
     }
   }
 });
+
+
+$('.inp-form').submit(function(event) {
+  event.preventDefault(); // Prevents the default form submission behavior
+
+  // Serialize form data
+  var formData = $(this).serialize();
+
+  // Store the current scroll position in sessionStorage
+sessionStorage.setItem('scrollPosition', $(window).scrollTop());
+
+// Perform AJAX form submission
+$.ajax({
+  url: $(this).attr('action'),
+  type: $(this).attr('method'),
+  data: formData,
+  success: function(response) {
+    $('#inp-form').trigger('reset'); // Clear the form
+
+    // Redirect to the specified page and scroll to the stored position
+    window.location.href = '/user/dashboard?scroll=' + sessionStorage.getItem('scrollPosition');
+
+    // Clear the browser's cache
+    window.location.reload(true);
+  }
+});
+});
+
