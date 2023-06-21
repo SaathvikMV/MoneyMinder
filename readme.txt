@@ -1,2 +1,2 @@
 Project still in progress...
-Temporarily deployed link = https://pennywise-88s4.onrender.com
+Temporarily deployed link = https://pennywise-uecs.onrender.com/
